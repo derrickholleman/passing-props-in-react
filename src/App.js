@@ -1,8 +1,10 @@
-import React from "react";
+import React, { Component } from "react";
 import './App.css';
 import AddTodo from './Components/AddTodo';
 
-export default class App extends React.Component {
+export default class App extends Component {
+
+  // set initial value of state and is passed to {this.state.todos}
   constructor() {
     super();
     this.state = {
@@ -10,7 +12,8 @@ export default class App extends React.Component {
     };
   }
 
-  addTodo = () => {
+  // initialize addOne method and setState function to increment state by +1 on click
+  addOne = () => {
     this.setState(
       {
         todos: this.state.todos + 1
@@ -19,7 +22,7 @@ export default class App extends React.Component {
   }
 
   /*
-      add a method called addTodo() that increments
+      add a method called addOne() that increments
       this.state.todos by 1
 
       pass the method down to the AddTodo component
@@ -34,8 +37,10 @@ export default class App extends React.Component {
         <h1>ToDo List</h1>
         <p>Just keep giving me things to do</p>
         <p>I still have {this.state.todos} things to do</p>
-        <AddTodo addTodo={this.addTodo}/>
+
+        <AddTodo addTodo={this.addOne}/>
       </div>
     );
   }
 }
+// {this.addOne} in child component is passed from addOne method. addTodo is initialized as props and then used in an onClick function in child component.
