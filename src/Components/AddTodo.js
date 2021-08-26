@@ -1,11 +1,11 @@
 import React from "react";
 
 
-const AddTodo = (props) => {
+const AddTodo = ({addTodo}) => {
 
   return (
     <div className="AddTodo">
-      <button onClick = {() => props.addTodo()}>Add Another</button>
+      <button onClick = {addTodo}>Add Another</button>
     </div>
   );
 }
